@@ -5,19 +5,6 @@ class ThemeChanger extends ChangeNotifier {
     accentColor: Colors.red,
     brightness: Brightness.dark,
     primaryColor: Colors.amber,
-    scaffoldBackgroundColor: Colors.white70,
-    textTheme: TextTheme(
-      bodyText1: TextStyle(
-        color: Colors.black,
-      ),
-    ),
-    buttonColor: Colors.green,
-  );
-
-  ThemeData lightTheme = ThemeData(
-    accentColor: Colors.pink,
-    brightness: Brightness.light,
-    primaryColor: Colors.blue,
     scaffoldBackgroundColor: Colors.black87,
     textTheme: TextTheme(
       bodyText1: TextStyle(
@@ -26,8 +13,21 @@ class ThemeChanger extends ChangeNotifier {
     ),
     buttonColor: Colors.amber,
   );
-  bool islight;
-  ThemeChanger(this.islight);
+
+  ThemeData lightTheme = ThemeData(
+    accentColor: Colors.blue,
+    brightness: Brightness.light,
+    primaryColor: Colors.green,
+    scaffoldBackgroundColor: Colors.white70,
+    textTheme: TextTheme(
+      bodyText1: TextStyle(
+        color: Colors.black,
+      ),
+    ),
+    buttonColor: Colors.green,
+  );
+  bool islight = true;
+  ThemeChanger();
   get islightbool => this.islight;
 
   get getTheme => islight ? lightTheme : darkTheme;
