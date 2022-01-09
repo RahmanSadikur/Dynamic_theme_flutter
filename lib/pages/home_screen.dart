@@ -6,7 +6,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var mediaquary =
         MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top;
-    // print("Home Screen Called");
+    print("Home Screen Called");
     return Scaffold(
       appBar: AppBar(
         title: Text("Home"),

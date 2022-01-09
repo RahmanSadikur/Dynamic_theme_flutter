@@ -23,6 +23,8 @@ class MaterialAppWithTheme extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Provider.of<ThemeChanger>(context);
+
+    print("Main Screen called");
     return MaterialApp(
       title: 'Flutter Demo',
       theme: theme.getTheme,

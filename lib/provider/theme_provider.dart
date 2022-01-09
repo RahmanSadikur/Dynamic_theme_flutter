@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeChanger extends ChangeNotifier {
   ThemeData darkTheme = ThemeData(
@@ -27,12 +28,26 @@ class ThemeChanger extends ChangeNotifier {
     buttonColor: Colors.green,
   );
   bool islight = true;
-  ThemeChanger();
+
   get islightbool => this.islight;
 
-  get getTheme => islight ? lightTheme : darkTheme;
-  void setTheme() {
+  ThemeChanger() {
+    init();
+  }
+  init() async {
+    SharedPreferences _prefs = await SharedPreferences.getInstance();
+    islight = _prefs.getBool('theme') != null ? _prefs.getBool('theme') : true;
+    notifyListeners();
+  }
+
+  get getTheme {
+    return islight ? lightTheme : darkTheme;
+  }
+
+  void setTheme() async {
     islight = !islight;
     notifyListeners();
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    pref.setBool('theme', islight);
   }
 }
