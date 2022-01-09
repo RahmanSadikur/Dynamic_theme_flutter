@@ -29,6 +29,7 @@ class MaterialAppWithTheme extends StatelessWidget {
       title: 'Flutter Demo',
       theme: theme.getTheme,
       home: HomeScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
